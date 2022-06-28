@@ -2,8 +2,8 @@
 
 
 [![License: BSD](https://img.shields.io/github/license/BorgwardtLab/recombat)](https://opensource.org/licenses/BSD-3-Clause)
-[![Version](https://img.shields.io/pypi/v/recombat)](https://pypi.org/project/recombat/)
-[![PythonVersion](https://img.shields.io/pypi/pyversions/recombat)]()
+[![Version](https://img.shields.io/pypi/v/recombat)](https://pypi.org/project/simbsig/)
+[![PythonVersion](https://img.shields.io/pypi/pyversions/simbsig)]()
 [![Documentation Status](https://readthedocs.org/projects/simbsig/badge/?version=latest)](https://simbsig.readthedocs.io/en/latest/?badge=latest)
 
 SIMBSIG is a GPU accelerated software tool for neighborhood queries, KMeans and PCA which mimics the sklearn API.
