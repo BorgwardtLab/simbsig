@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KNeighborsRegressor &mdash; simbsig  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="RadiusNeighborsClassifier" href="RadiusNeighborsClassifier.html" />
+    <link rel="prev" title="KNeighborsClassifier" href="KNeighborsClassifier.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> simbsig
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">NearestNeighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KNeighborsClassifier.html">KNeighborsClassifier</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">KNeighborsRegressor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RadiusNeighborsClassifier.html">RadiusNeighborsClassifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RadiusNeighborsRegressor.html">RadiusNeighborsRegressor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PCA.html">PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MiniBatchKMeans.html">MiniBatchKMeans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced.html">Advanced</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">simbsig</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>KNeighborsRegressor</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/KNeighborsRegressor.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="kneighborsregressor">
+<h1>KNeighborsRegressor<a class="headerlink" href="#kneighborsregressor" title="Permalink to this headline"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="simbsig.neighbors.KNeighborsRegressor.KNeighborsRegressor">
+<span class="sig-prename descclassname"><span class="pre">simbsig.neighbors.KNeighborsRegressor.</span></span><span class="sig-name descname"><span class="pre">KNeighborsRegressor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_neighbors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'euclidean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'uniform'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'arrays'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simbsig.neighbors.KNeighborsRegressor.KNeighborsRegressor" title="Permalink to this definition"></a></dt>
+<dd><p>Regression based on k-nearest neighbors, with <cite>k=n_neighbors</cite>.
+The target is predicted based on the nearest neighbors’ target identified in the training set.</p>
+<p>Parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_neighbors</strong> – int, default=5
+Number of neighbors to search for during :meth: <cite>kneighbors</cite> queries.</p></li>
+<li><p><strong>metric</strong> – str or callable, default=’minkowski’
+The distance metric used to quantify similarity between objects,
+with default metric being minkowski. Other available metrics include
+[‘euclidean’, ‘manhattan’, ‘minkowski’,’fractional’,’cosine’,’mahalanobis’].
+When <cite>metric=’precomputed’</cite>, provide X as a distance matrix which will
+be square during fit.</p></li>
+<li><p><strong>p</strong> – int, default=2
+Parameter to be used when <cite>metric=’minkowski’</cite>. Note that if <cite>p=1</cite> or <cite>p=2</cite>,
+it is equivalent to using <cite>metric=‘manhattan’</cite> (L1) or <cite>metric=‘euclidean’</cite>
+(L2), respectively. For any other arbitrary p, minkowski distance (L_p) is used.</p></li>
+<li><p><strong>metric_params</strong> – dict, default=None
+Additional metric-specific keyword arguments.</p></li>
+<li><p><strong>feature_weights</strong> – np.array of floats, default=None
+Vector giving user-defined weights to every feature.
+Must be of similar length as the number of features n_features_in.
+If <cite>feature_weights=None</cite>, uniform weights are applied.</p></li>
+<li><p><strong>sample_weights</strong> – str or callable, default=’uniform’
+Options supported are: [‘uniform’,’distance’] or callable
+Defines the weights to be applied to the nearest neighbors identified in the training set.
+If <cite>weights=’uniform’</cite>, all points in each neighborhood are weighted equally.
+If <cite>weights=’distance’</cite>, weight is proportional to the distance to the query point,
+such that neighbors closer to the query point have a greater influence on the prediction.
+If <cite>weight=’callable’</cite>, a user-defined function should be passed.
+It requires to take array of distances as inputs and to return an equal-size array of weights.</p></li>
+<li><p><strong>device</strong> – str, default=’cpu’
+Which device to use for distance computations.
+Options supported are: [‘cpu’,’gpu’]</p></li>
+<li><p><strong>mode</strong> – str, default=’arrays’
+Whether the input data is in memory (as lists, arrays or tensors) or
+on disk as hdf5 files. The latter should be favored for big datasets.
+Options supported are: [‘arrays’,’hdf5’]</p></li>
+<li><p><strong>n_jobs</strong> – int, default=0
+Number of jobs active in torch.dataloader.</p></li>
+<li><p><strong>batch_size</strong> – str, default=None
+Batch size of data chunks that are processed at once for distance computations. Should be
+optimized for dataset when using <cite>device=’gpu’</cite>.
+If <cite>batch_size=None</cite>, the entire dataset is loaded and processed at once,
+which may return an error when using <cite>device=’gpu’</cite>.</p></li>
+<li><p><strong>verbose</strong> – bool, default=True
+Logging information. If True, progression updates are produced.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="simbsig.neighbors.KNeighborsRegressor.KNeighborsRegressor.fit">
+<span class="sig-prename descclassname"><span class="pre">simbsig.neighbors.KNeighborsRegressor.KNeighborsRegressor.</span></span><span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simbsig.neighbors.KNeighborsRegressor.KNeighborsRegressor.fit" title="Permalink to this definition"></a></dt>
+<dd><p>Fit regressor based on the k-nearest neighbors from the training dataset.</p>
+<p>Parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – Training data passed in an array-like or h5py file format.
+Should be of shape (n_samples, n_features) or (n_samples, n_samples) if <cite>metric=’precomputed’</cite>.</p></li>
+<li><p><strong>y</strong> – None if X is a h5py file handle, array-like otherwise.
+Should be of shape (n_samples,) or (n_samples, n_regressions)</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return self</dt>
+<dd class="field-odd"><p>NearestNeighbor
+The fitted nearest neighbors estimator.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="simbsig.neighbors.KNeighborsRegressor.KNeighborsRegressor.predict">
+<span class="sig-prename descclassname"><span class="pre">simbsig.neighbors.KNeighborsRegressor.KNeighborsRegressor.</span></span><span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simbsig.neighbors.KNeighborsRegressor.KNeighborsRegressor.predict" title="Permalink to this definition"></a></dt>
+<dd><p>Predict the target for the testing dataset.</p>
+<p>Parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> – Test samples passed in an array-like or h5py file format.
+Should be of shape (n_queries, n_features) or (n_queries, n_indexed) if <cite>metric == ‘precomputed’</cite>.</p>
+</dd>
+</dl>
+<p>Returns</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return y</dt>
+<dd class="field-odd"><p>Predicted target values returned as an
+ndarray of shape (n_queries,) or (n_queries, n_regressions).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="KNeighborsClassifier.html" class="btn btn-neutral float-left" title="KNeighborsClassifier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="RadiusNeighborsClassifier.html" class="btn btn-neutral float-right" title="RadiusNeighborsClassifier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Eljas Roellin Michael Adamer Lucie Bourguignon.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

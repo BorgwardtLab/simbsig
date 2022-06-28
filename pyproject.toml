@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "simbsig"
+version = "0.1.0"
+description = "A python package for out-of-core similarity search and dimensionality reduction"
+authors = ["Eljas Roellin <roelline@student.ethz.ch>",
+           "Michael F. Adamer <michael.adamer@bsse.ethz.ch>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+sklearn = "^0.0"
+unittest = "^0.0"
+h5py = "^3.7.0"
+
+[tool.poetry.dev-dependencies]
+torch = "^1.11.0"
+numpy = "^1.22.3"
+tqdm = "^4.64.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PCA &mdash; simbsig  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MiniBatchKMeans" href="MiniBatchKMeans.html" />
+    <link rel="prev" title="RadiusNeighborsRegressor" href="RadiusNeighborsRegressor.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> simbsig
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NearestNeighbors.html">NearestNeighbors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KNeighborsClassifier.html">KNeighborsClassifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KNeighborsRegressor.html">KNeighborsRegressor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RadiusNeighborsClassifier.html">RadiusNeighborsClassifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RadiusNeighborsRegressor.html">RadiusNeighborsRegressor</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MiniBatchKMeans.html">MiniBatchKMeans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Advanced.html">Advanced</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">simbsig</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>PCA</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/PCA.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="pca">
+<h1>PCA<a class="headerlink" href="#pca" title="Permalink to this headline"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="simbsig.decomposition.PCA.PCA">
+<span class="sig-prename descclassname"><span class="pre">simbsig.decomposition.PCA.</span></span><span class="sig-name descname"><span class="pre">PCA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_components</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iterated_power</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_oversamples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centered</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'arrays'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simbsig.decomposition.PCA.PCA" title="Permalink to this definition"></a></dt>
+<dd><p>Principal Component Analysis class. Implements Halko’s algorithm[1], batched data loading for big datasets and
+optional GPU accelerated computations.</p>
+<p>Parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_components</strong> – int, default=None
+Number of principle components to be kept.</p></li>
+<li><p><strong>power</strong> (<em>iterated</em>) – int, default=0
+The i in Halko’s paper</p></li>
+<li><p><strong>n_oversamples</strong> – int, default=n_components+2.
+The l in Halko’s paper</p></li>
+<li><p><strong>centered</strong> – bool, default=False
+Whether the features of the input data have been centered.</p></li>
+<li><p><strong>device</strong> – str, default=’cpu’
+Which device to use for distance computations.
+Options supported are: [‘cpu’,’gpu’]</p></li>
+<li><p><strong>mode</strong> – str, default=’arrays’
+Whether the input data is in memory (as lists, arrays or tensors) or
+on disk as hdf5 files. The latter should be favored for big datasets.
+Options supported are: [‘arrays’,’hdf5’]</p></li>
+<li><p><strong>n_jobs</strong> – int, default=0
+Number of jobs active in torch.dataloader.</p></li>
+<li><p><strong>batch_size</strong> – str, default=None
+Batch size of data chunks that are processed at once for distance computations. Should be
+optimized for dataset when using <cite>device=’gpu’</cite>.
+If <cite>batch_size=None</cite>, the entire dataset is loaded and processed at once,
+which may return an error when using <cite>device=’gpu’</cite>.</p></li>
+<li><p><strong>random_state</strong> – int, default=None
+The random state for the seed of torch.</p></li>
+<li><p><strong>verbose</strong> – bool, default=True
+Logging information. If True, progression updates are produced.</p></li>
+</ul>
+</dd>
+</dl>
+<p>[1] Halko, Nathan, et al. “An algorithm for the principal component analysis of large data sets.” SIAM Journal
+on Scientific computing 33.5 (2011): 2580-2594.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="simbsig.decomposition.PCA.PCA.fit">
+<span class="sig-prename descclassname"><span class="pre">simbsig.decomposition.PCA.PCA.</span></span><span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simbsig.decomposition.PCA.PCA.fit" title="Permalink to this definition"></a></dt>
+<dd><p>Performs principle component decomposition using Halko’s method</p>
+<p>Parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – array-like or h5py file handle.
+Training Data of shape (n_samples, n_features) or                 (n_samples, n_samples) if <cite>metric=’precomputed’</cite></p></li>
+<li><p><strong>y</strong> – Ignored.
+Only present by convention.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return self</dt>
+<dd class="field-odd"><p>PCA
+The PCA object with computed principal components</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="simbsig.decomposition.PCA.PCA.transform">
+<span class="sig-prename descclassname"><span class="pre">simbsig.decomposition.PCA.PCA.</span></span><span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centered</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simbsig.decomposition.PCA.PCA.transform" title="Permalink to this definition"></a></dt>
+<dd><p>Transforms data of same dimension as training data into dimension of n_components using
+the principal components computed during fit.</p>
+<p>Parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> – array-like or h5py file handle.
+Training Data of shape (n_samples, n_features)</p></li>
+<li><p><strong>centered</strong> – bool, default=False
+Whether the features of the input data have been centered.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return X_transformed</dt>
+<dd class="field-odd"><p>torch.tensor
+The transformed data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="simbsig.decomposition.PCA.PCA.fit_transform">
+<span class="sig-prename descclassname"><span class="pre">simbsig.decomposition.PCA.PCA.</span></span><span class="sig-name descname"><span class="pre">fit_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simbsig.decomposition.PCA.PCA.fit_transform" title="Permalink to this definition"></a></dt>
+<dd><p>Performs fit (principle component decomposition using Halko’s method) and transform (Transforms data of same
+data into dimension of n_components using the principal components computed during fit) on the data X.</p>
+<p>Parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> – array-like or h5py file handle.
+Training Data of shape (n_samples, n_features)</p>
+</dd>
+</dl>
+<p>Returns</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return X_transformed</dt>
+<dd class="field-odd"><p>torch.tensor
+The transformed data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="RadiusNeighborsRegressor.html" class="btn btn-neutral float-left" title="RadiusNeighborsRegressor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="MiniBatchKMeans.html" class="btn btn-neutral float-right" title="MiniBatchKMeans" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Eljas Roellin Michael Adamer Lucie Bourguignon.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
