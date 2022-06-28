@@ -6,12 +6,12 @@ Welcome to SIMBSIG's documentation!
 
 **SIMBSIG**, a Python package which provides a scikit-learn-like interface for out-of-core, GPU-enabled similarity searches, principal component analysis, and clustering. Due to the PyTorch backend it is highly modular and particularly tailored to many data types with a particular focus on biobank data analysis.
 
-**SIMBSIG** is available on `GitHub <https://github.com/MikeAdamer/bigsise-private/>`_.
+**SIMBSIG** is available on `GitHub <https://https://github.com/BorgwardtLab/simbsig/>`_.
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-   
+
    Quickstart
    NearestNeighbors
    KNeighborsClassifier
@@ -21,7 +21,7 @@ Welcome to SIMBSIG's documentation!
    PCA
    MiniBatchKMeans
    Advanced
-   
+
 .. note::
 
    This project is under active development.
@@ -32,5 +32,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
-
