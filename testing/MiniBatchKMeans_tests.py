@@ -4,7 +4,6 @@ import pathlib
 import h5py
 import os
 from sklearn.datasets import make_blobs
-import matplotlib.pyplot as plt
 
 from sklearn.cluster import KMeans as KMeans_sk
 from sklearn.cluster import MiniBatchKMeans as MinibatchKMeans_sk
