@@ -6,14 +6,12 @@ authors = ["Eljas Roellin <roelline@student.ethz.ch>",
            "Michael F. Adamer <michael.adamer@bsse.ethz.ch>"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 sklearn = "^0.0"
 unittest = "^0.0"
 h5py = "^3.7.0"
-
-[tool.poetry.dev-dependencies]
-torch = "^1.11.0"
-numpy = "^1.22.3"
+torch = "^1.12.0"
+numpy = "^1.23.0"
 tqdm = "^4.64.0"
 
 [build-system]
