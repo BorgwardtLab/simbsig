@@ -119,18 +119,10 @@ category = "main"
 optional = false
 python-versions = ">=3.7"
 
-[[package]]
-name = "unittest"
-version = "0.0"
-description = ""
-category = "main"
-optional = false
-python-versions = "*"
-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "011489f98aa07cea1c0b7c49605eb1d9aa54dcba03f49df930adce64394fb159"
+content-hash = "06cfd3437b4603c05096ecff4312dc7c7fb34f7b93ea869d31b2f22b886add0f"
 
 [metadata.files]
 colorama = [
@@ -264,7 +256,4 @@ tqdm = [
 typing-extensions = [
     {file = "typing_extensions-4.2.0-py3-none-any.whl", hash = "sha256:6657594ee297170d19f67d55c05852a874e7eb634f4f753dbd667855e07c1708"},
     {file = "typing_extensions-4.2.0.tar.gz", hash = "sha256:f1c24655a0da0d1b67f07e17a5e6b2a105894e6824b92096378bb3668ef02376"},
-]
-unittest = [
-    {file = "unittest2-0.0.0.tar.gz", hash = "sha256:1b492484bea7f68abda5fcc61412e77b6a105e5842355d630f8b75f01add3555"},
 ]

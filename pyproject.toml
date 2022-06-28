@@ -8,7 +8,6 @@ authors = ["Eljas Roellin <roelline@student.ethz.ch>",
 [tool.poetry.dependencies]
 python = "^3.8"
 sklearn = "^0.0"
-unittest = "^0.0"
 h5py = "^3.7.0"
 torch = "^1.12.0"
 numpy = "^1.23.0"

@@ -17,8 +17,7 @@ install_requires = \
  'numpy>=1.23.0,<2.0.0',
  'sklearn>=0.0,<0.1',
  'torch>=1.12.0,<2.0.0',
- 'tqdm>=4.64.0,<5.0.0',
- 'unittest>=0.0,<0.1']
+ 'tqdm>=4.64.0,<5.0.0']
 
 setup_kwargs = {
     'name': 'simbsig',
