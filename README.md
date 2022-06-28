@@ -1,7 +1,7 @@
 # SIMBSIG = SIMilarity Batched Search Integrated Gpu-based
 
 
-[![License: BSD](https://img.shields.io/github/license/BorgwardtLab/recombat)](https://opensource.org/licenses/BSD-3-Clause)
+[![License: BSD](https://img.shields.io/github/license/BorgwardtLab/simbsig)](https://opensource.org/licenses/BSD-3-Clause)
 [![Version](https://img.shields.io/pypi/v/recombat)](https://pypi.org/project/simbsig/)
 [![PythonVersion](https://img.shields.io/pypi/pyversions/simbsig)]()
 [![Documentation Status](https://readthedocs.org/projects/simbsig/badge/?version=latest)](https://simbsig.readthedocs.io/en/latest/?badge=latest)
@@ -12,8 +12,6 @@ The algorithm for batchwise data loading and GPU usage follows the principle of 
 The API matches sklearn in big parts [4,5], such that code dedicated to sklearn can be simply reused by importing SIMBSIG instead of sklearn. Additional features and arguments for scaling have been added, for example all data input can be either array-like or as a h5py file handle [6].
 
 *Eljas Röllin, Michael Adamer, Lucie Bourguignon, Karsten M. Borgwardt*
-
-[GitHub Repo](https://github.com)
 
 
 ## Installation
