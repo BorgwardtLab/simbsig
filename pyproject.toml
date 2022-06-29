@@ -5,6 +5,17 @@ description = "A python package for out-of-core similarity search and dimensiona
 authors = ["Eljas Roellin <roelline@student.ethz.ch>",
            "Michael F. Adamer <michael.adamer@bsse.ethz.ch>"]
 
+license = "BSD-3-Clause"
+readme = "README.md"
+
+homepage = "https://github.com/BorgwardtLab/simbsig"
+repository = "https://github.com/BorgwardtLab/simbsig"
+keywords = ["similarity search", "kmeans", "knn", "nearest neighbors", "gpu", "pca"]
+
+include = ["LICENSE"]
+
+packages = [{ include="simbsig", from="." }]
+
 [tool.poetry.dependencies]
 python = "^3.8"
 h5py = "^3.7.0"
