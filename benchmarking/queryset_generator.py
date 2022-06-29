@@ -4,7 +4,7 @@ import h5py as h5
 
 from tqdm import tqdm
 
-DATA_PATH = '/home/michael/ETH/data/BIGSISE'
+DATA_PATH = '.'
 
 def generate_snps():
     num_patients = int(1e3)

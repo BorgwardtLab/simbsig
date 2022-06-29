@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 import os
 
-DATA_PATH = '/home/michael/ETH/data/BIGSISE'
+DATA_PATH = '.'
 
 def test_in_core_gpu(dataset,queryset):
     max_patients = int(1e5)

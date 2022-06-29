@@ -1,6 +1,6 @@
-from bigsise.neighbors import NearestNeighbors as NearestNeighborsOwn
-from bigsise.clustering import MiniBatchKMeans as MiniBatchKMeansOwn
-from bigsise.decomposition import PCA as PCAOwn
+from simbsig.neighbors import NearestNeighbors as NearestNeighborsOwn
+from simbsig.cluster import MiniBatchKMeans as MiniBatchKMeansOwn
+from simbsig.decomposition import PCA as PCAOwn
 
 from sklearn.neighbors import NearestNeighbors
 from sklearn.cluster import KMeans, MiniBatchKMeans
@@ -20,14 +20,14 @@ import os
 
 from multiprocessing import cpu_count
 
-DATA_PATH = '/home/michael/ETH/data/BIGSISE'
+DATA_PATH = '.'
 
 
 def test_in_core_cpu(dataset,queryset):
     X_query = queryset['X'][:]
 
     patients_step = [10,100,1000,10000,20000,30000,40000,60000,80000,100000]
-    out_df = pd.DataFrame(index=patients_step,columns=['neighbors_sklearn','neighbors_bigsise','kmeans_sklearn','kmeans_bigsise','pca_sklearn','pca_bigsise'])
+    out_df = pd.DataFrame(index=patients_step,columns=['neighbors_sklearn','neighbors_simbsig','kmeans_sklearn','kmeans_simbsig','pca_sklearn','pca_simbsig'])
 
     # test neighbors
     print('Testing neighbors')
@@ -46,7 +46,7 @@ def test_in_core_cpu(dataset,queryset):
         neigh_own = NearestNeighborsOwn(n_neighbors=4,metric='euclidean')
         neigh_own.fit(X_step)
         dist_own, neighb_own = neigh_own.kneighbors(X_query, return_distance=True)
-        out_df.loc[num_patients,['neighbors_bigsise']] = time()-tic
+        out_df.loc[num_patients,['neighbors_simbsig']] = time()-tic
 
     # test kmeans
     print('Testing KMeans')
@@ -66,19 +66,19 @@ def test_in_core_cpu(dataset,queryset):
         # kmeans_sk_ex.fit(X_step)
 
         tic = time()
-        kmeans_bigsise = MiniBatchKMeansOwn(n_clusters=4,init=init,random_state=47,batch_size=batch_size)
-        kmeans_bigsise.fit(X_step)
-        out_df.loc[num_patients,['kmeans_bigsise']] = time()-tic
+        kmeans_simbsig = MiniBatchKMeansOwn(n_clusters=4,init=init,random_state=47,batch_size=batch_size)
+        kmeans_simbsig.fit(X_step)
+        out_df.loc[num_patients,['kmeans_simbsig']] = time()-tic
 
         # sort_idx_sk = np.argsort(kmeans_sk.cluster_centers_[:,0])
         # sort_idx_sk_ex = np.argsort(kmeans_sk_ex.cluster_centers_[:,0])
-        # sort_idx_bigsise = np.argsort(kmeans_bigsise.cluster_centers_[:,0])
+        # sort_idx_simbsig = np.argsort(kmeans_simbsig.cluster_centers_[:,0])
         # print(kmeans_sk_ex.cluster_centers_[sort_idx_sk_ex])
         # print(kmeans_sk.cluster_centers_[sort_idx_sk])
-        # print(kmeans_bigsise.cluster_centers_[sort_idx_bigsise])
+        # print(kmeans_simbsig.cluster_centers_[sort_idx_simbsig])
         #
         # print(np.linalg.norm(kmeans_sk_ex.cluster_centers_[sort_idx_sk_ex]-kmeans_sk.cluster_centers_[sort_idx_sk]))
-        # print(np.linalg.norm(kmeans_sk_ex.cluster_centers_[sort_idx_sk_ex]-kmeans_bigsise.cluster_centers_[sort_idx_bigsise]))
+        # print(np.linalg.norm(kmeans_sk_ex.cluster_centers_[sort_idx_sk_ex]-kmeans_simbsig.cluster_centers_[sort_idx_simbsig]))
 
     # test pca
     print('Testing PCA')
@@ -93,11 +93,11 @@ def test_in_core_cpu(dataset,queryset):
         out_df.loc[num_patients,['pca_sklearn']] = time()-tic
 
         tic = time()
-        pca_bigsise = PCAOwn(n_components=4,iterated_power=0,n_oversamples=6,random_state=47,batch_size=batch_size)
-        pca_bigsise.fit(X_step)
-        out_df.loc[num_patients,['pca_bigsise']] = time()-tic
+        pca_simbsig = PCAOwn(n_components=4,iterated_power=0,n_oversamples=6,random_state=47,batch_size=batch_size)
+        pca_simbsig.fit(X_step)
+        out_df.loc[num_patients,['pca_simbsig']] = time()-tic
 
-        # print(pca_bigsise.singular_values_)
+        # print(pca_simbsig.singular_values_)
 
     return out_df
 
@@ -105,7 +105,7 @@ def test_in_core_gpu(dataset,queryset):
     X_query = queryset['X'][:]
 
     patients_step = [10,100,1000,10000,20000,30000,40000,60000,80000,100000]
-    out_df = pd.DataFrame(index=patients_step,columns=['neighbors_cuml','neighbors_bigsise','kmeans_cuml','kmeans_bigsise','pca_cuml','pca_bigsise'])
+    out_df = pd.DataFrame(index=patients_step,columns=['neighbors_cuml','neighbors_simbsig','kmeans_cuml','kmeans_simbsig','pca_cuml','pca_simbsig'])
 
     # test neighbors
     print('Testing neighbors')
@@ -126,7 +126,7 @@ def test_in_core_gpu(dataset,queryset):
         neigh_own = NearestNeighborsOwn(n_neighbors=4,metric='euclidean',device='gpu',batch_size=batch_size)
         neigh_own.fit(X_step)
         dist_own, neighb_own = neigh_own.kneighbors(X_query, return_distance=True)
-        out_df.loc[num_patients,['neighbors_bigsise']] = time()-tic
+        out_df.loc[num_patients,['neighbors_simbsig']] = time()-tic
 
     # test kmeans
     print('Testing KMeans')
@@ -143,9 +143,9 @@ def test_in_core_gpu(dataset,queryset):
         # out_df.loc[num_patients,['kmeans_cuml']] = time()-tic
 
         tic = time()
-        kmeans_bigsise = MiniBatchKMeansOwn(n_clusters=4,init=init,random_state=47,device='gpu',batch_size=batch_size)
-        kmeans_bigsise.fit(X_step)
-        out_df.loc[num_patients,['kmeans_bigsise']] = time()-tic
+        kmeans_simbsig = MiniBatchKMeansOwn(n_clusters=4,init=init,random_state=47,device='gpu',batch_size=batch_size)
+        kmeans_simbsig.fit(X_step)
+        out_df.loc[num_patients,['kmeans_simbsig']] = time()-tic
 
     # test pca
     print('Testing PCA')
@@ -161,9 +161,9 @@ def test_in_core_gpu(dataset,queryset):
         # out_df.loc[num_patients,['pca_cuml']] = time()-tic
 
         tic = time()
-        pca_bigsise = PCAOwn(n_components=4,device='gpu',iterated_power=0,n_oversamples=6,batch_size=batch_size,random_state=47)
-        pca_bigsise.fit(X_step)
-        out_df.loc[num_patients,['pca_bigsise']] = time()-tic
+        pca_simbsig = PCAOwn(n_components=4,device='gpu',iterated_power=0,n_oversamples=6,batch_size=batch_size,random_state=47)
+        pca_simbsig.fit(X_step)
+        out_df.loc[num_patients,['pca_simbsig']] = time()-tic
 
     return out_df
 
@@ -201,12 +201,12 @@ def test_out_of_core(dataset,queryset):
             init = X['X'][:4]
 
             tic = time()
-            kmeans_bigsise = MiniBatchKMeansOwn(n_clusters=4,init=init,random_state=47,mode='hdf5',device=device,batch_size=batch_size,n_jobs=n_jobs)
-            kmeans_bigsise.fit(X)
+            kmeans_simbsig = MiniBatchKMeansOwn(n_clusters=4,init=init,random_state=47,mode='hdf5',device=device,batch_size=batch_size,n_jobs=n_jobs)
+            kmeans_simbsig.fit(X)
             out_df.loc[num_patients,[f'kmeans_ooc_{device}']] = time()-tic
 
-            # sort_idx_bigsise = np.argsort(kmeans_bigsise.cluster_centers_[:,0])
-            # print(kmeans_bigsise.cluster_centers_[sort_idx_bigsise])
+            # sort_idx_simbsig = np.argsort(kmeans_simbsig.cluster_centers_[:,0])
+            # print(kmeans_simbsig.cluster_centers_[sort_idx_simbsig])
 
         # test pca
         print('Testing PCA')
@@ -216,11 +216,11 @@ def test_out_of_core(dataset,queryset):
             batch_size = min(num_patients,10000)
 
             tic = time()
-            pca_bigsise = PCAOwn(n_components=4,mode='hdf5',device=device,batch_size=batch_size,n_jobs=n_jobs)
-            pca_bigsise.fit(X)
+            pca_simbsig = PCAOwn(n_components=4,mode='hdf5',device=device,batch_size=batch_size,n_jobs=n_jobs)
+            pca_simbsig.fit(X)
             out_df.loc[num_patients,[f'pca_ooc_{device}']] = time()-tic
 
-            # print(pca_bigsise.singular_values_)
+            # print(pca_simbsig.singular_values_)
 
     return out_df
 
