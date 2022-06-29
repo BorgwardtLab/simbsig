@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "simbsig"
-version = "0.1.1"
+version = "0.1.2"
 description = "A python package for out-of-core similarity search and dimensionality reduction"
 authors = ["Eljas Roellin <roelline@student.ethz.ch>",
            "Michael F. Adamer <michael.adamer@bsse.ethz.ch>"]
